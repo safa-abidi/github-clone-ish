@@ -2,12 +2,31 @@ import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./Home.css";
 import SearchBar from "../components/SearchBar";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, Flip, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import GitHubService from "../services/GithubService";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const search = () => {
-    console.log("Search");
+  const navigate = useNavigate();
+  const search = async (login: string) => {
+    try {
+      const result = await GitHubService.getUserRepos(login);
+      if (result) {
+        navigate(`/repos/:${login}`);
+      } else {
+        toast.warn("User not found", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          transition: Flip,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
