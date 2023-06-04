@@ -1,6 +1,6 @@
 import User from "./userModel";
 
-interface Repo {
+interface RepoModel {
   created_at: string;
   description: string;
   forks_count: number;
@@ -14,4 +14,4 @@ interface Repo {
   visibility: string;
 }
 
-export default Repo;
+export default RepoModel;

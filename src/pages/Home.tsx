@@ -13,7 +13,7 @@ const Home = () => {
     try {
       const result = await GitHubService.getUserRepos(login);
       if (result) {
-        navigate(`/repos/:${login}`);
+        navigate(`/repos/${login}`);
       } else {
         toast.warn("User not found", {
           position: "top-right",

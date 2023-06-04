@@ -1,0 +1,40 @@
+.profile-card {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  padding: 0.6em;
+}
+
+.avatar {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5em;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.login {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .avatar {
+    max-width: 70px;
+    margin-right: 1em;
+  }
+  .login {
+    font-size: 1em;
+    font-weight: 500;
+  }
+  .numberRepos {
+    font-size: 0.9em;
+  }
+}

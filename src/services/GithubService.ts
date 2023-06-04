@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import RepoModel from "../models/repoModel";
 
 /**
  * Service class for interacting with the GitHub API.
@@ -13,7 +14,7 @@ class GitHubService {
    */
   static async getUserRepos(login: string): Promise<any> {
     try {
-      const response: AxiosResponse = await axios.get(
+      const response: AxiosResponse<RepoModel[]> = await axios.get(
         `https://api.github.com/users/${login}/repos`
       );
       // Check for successful response code (200)
