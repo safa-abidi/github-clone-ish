@@ -14,8 +14,13 @@ const Repo = (props: RepoProps) => {
   const formattedUpdateTime = dayjs(props.repo.updated_at).fromNow();
   return (
     <div className="repo-card">
-      <h2 className="repo-name">{props.repo.name}</h2>
-      <p className="repo-description">{props.repo.description}</p>
+      <div className="repo-basic-info">
+        <h2 className="repo-name">{props.repo.name}</h2>
+        <span className="visibility">{props.repo.visibility}</span>
+      </div>
+      <p className="repo-description">
+        {props.repo.description || "No description"}
+      </p>
       <div className="repo-details">
         <div className="repo-info">
           <span className="repo-language">{props.repo.language}</span>

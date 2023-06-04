@@ -6,10 +6,13 @@ import Repo from "../components/Repo";
 import SearchBar from "../components/SearchBar";
 import "./Repos.css";
 import RepoModel from "../models/repoModel";
+import NavBar from "../components/Navbar";
+import { ToastContainer } from "react-toastify";
 
 const Repos = () => {
   const { login } = useParams();
   const [repos, setRepos] = useState<RepoModel[]>([]);
+  const [filteredRepos, setFilteredRepos] = useState<RepoModel[]>([]);
 
   const getRepos = async () => {
     if (login) {
@@ -17,34 +20,54 @@ const Repos = () => {
       if (result.length > 0) {
         console.log(result);
         setRepos(result);
+        setFilteredRepos(result); // Initialize filtered repos with all repos
       }
     }
   };
-  const filterByname = () => {};
+
+  const filterByname = (searchInput: string) => {
+    if (searchInput.trim() === "") {
+      setFilteredRepos(repos); // Show all repositories when search input is empty
+    } else {
+      const filtered = repos.filter((repo) =>
+        repo.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      setFilteredRepos(filtered);
+    }
+  };
 
   useEffect(() => {
     getRepos();
   }, []);
 
-  const avatarUrl: string =
-    "https://avatars.githubusercontent.com/u/61377020?v=4";
   return (
-    <div className="content">
-      <ProfileSection
-        avatarUrl={avatarUrl}
-        login={login!}
-        numberRepos={repos.length}
-      />
-      <SearchBar placeholder="Find a repository..." onSearch={filterByname} />
-      <div className="repo-list">
-        {repos.map((repo, index) => (
-          <React.Fragment key={index}>
-            <Repo repo={repo} />
-            {index !== repos.length - 1 && <hr className="repo-divider" />}
-          </React.Fragment>
-        ))}
+    <>
+      <ToastContainer />
+      <NavBar></NavBar>
+      <div className="content">
+        <ProfileSection
+          avatarUrl={repos[0]?.owner.avatar_url}
+          login={login!}
+          numberRepos={repos.length}
+          html_url={repos[0]?.owner.html_url}
+        />
+        <SearchBar placeholder="Find a repository..." onSearch={filterByname} />
+        <div className="repo-list">
+          {filteredRepos.length > 0 ? (
+            filteredRepos.map((repo, index) => (
+              <React.Fragment key={index}>
+                <Repo repo={repo} />
+                {index !== filteredRepos.length - 1 && (
+                  <hr className="repo-divider" />
+                )}
+              </React.Fragment>
+            ))
+          ) : (
+            <p className="noReposText">No repositories found.</p>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,6 +4,13 @@
     transition: all 0.2s ease;
 }
 
+.noReposText{
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    color: #666;
+}
+
 .repo-list{
     margin-top: 1.5em;
 }
@@ -11,6 +18,9 @@
 @media screen and (max-width: 768px) {
     .content{
         max-width: 100%;
+    }
+    .noReposText{
+        font-size: 1em;
     }
 }
     

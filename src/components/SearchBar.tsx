@@ -1,22 +1,21 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Button from './Button';
-import React, { useState } from 'react';
-import './SearchBar.css';
-import { toast, Flip } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Button from "./Button";
+import React, { useState } from "react";
+import "./SearchBar.css";
+import { toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface SearchBarProps {
-    placeholder: string;
-    onSearch: (value: string) => void;
+  placeholder: string;
+  onSearch: (value: string) => void;
 }
 
 const SearchBar = (props: SearchBarProps) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       search();
     }
   };
@@ -29,27 +28,28 @@ const SearchBar = (props: SearchBarProps) => {
     const trimmedValue = value.trim();
     if (trimmedValue) {
       props.onSearch(trimmedValue);
-      setValue('');
-    }else{
-      toast.warn('Please fill in the search field', {
+      setValue("");
+    } else {
+      toast.warn("Please fill in the search field", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         transition: Flip,
-        });
+      });
     }
   };
 
   return (
     <div className="search-bar">
-      <input 
-        type="text" 
+      <input
+        type="text"
         placeholder={props.placeholder}
         value={value}
         onChange={handleInputChange}
-        onKeyDown={handleKeyPress} />
+        onKeyDown={handleKeyPress}
+      />
       <Button onClick={search}>
         <FontAwesomeIcon icon={faSearch} />
       </Button>
