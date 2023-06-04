@@ -1,12 +1,14 @@
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./Home.css";
-import Button from "../components/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import SearchBar from "../components/SearchBar";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
-  const search = () => {};
+  const search = () => {
+    console.log("Search");
+  };
   return (
     <>
       <NavBar />
@@ -15,12 +17,8 @@ const Home = () => {
           <h1>Welcome to Github Repos</h1>
           <p>Explore github repositories by user login</p>
         </header>
-        <div className="search-bar">
-          <input type="text" placeholder="Enter login ..." />
-          <Button onClick={search}>
-            <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
-          </Button>
-        </div>
+        <SearchBar placeholder="Enter login... " onSearch={search} />
+        <ToastContainer />
       </div>
       <Footer />
     </>
