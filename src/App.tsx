@@ -1,15 +1,11 @@
-import React from 'react';
-import { BrowserRouter,Routes, Route } from 'react-router-dom';
-import NavBar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Repos from './pages/Repos';
-import NotFound from './pages/NotFound';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Repos from "./pages/Repos";
+import NotFound from "./pages/NotFound";
 
-function App() {
+const App = () => {
   return (
-    <>
-    <NavBar />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,9 +13,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-    <Footer />
-    </>
   );
-}
+};
 
 export default App;

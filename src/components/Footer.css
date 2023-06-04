@@ -1,0 +1,21 @@
+.footer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-links {
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #1f6feb;
+  font-size: 24px;
+}
+
+.text {
+  color: #888888;
+  font-size: 14px;
+}
