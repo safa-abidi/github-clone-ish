@@ -11,6 +11,13 @@ test('renders repository information correctly', () => {
     updated_at: '2022-01-01T12:00:00Z',
     stargazers_count: 10,
     html_url: 'https://example.com/example-repo',
+    created_at: '2021-01-01T12:00:00Z',
+    id: 123456789,
+    owner:{
+      avatar_url: 'https://example.com/avatar.png',
+      html_url: 'https://example.com/example-user',
+      login: 'example-user',
+    }
   };
 
   render(<Repo repo={repo} />);
