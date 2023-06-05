@@ -29,6 +29,7 @@ const NavBar = () => {
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
+        data-testid="navigation-menu"
       >
         <ul>
           <li>
