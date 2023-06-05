@@ -29,6 +29,13 @@
   font-weight: 500;
   margin-bottom: 0.5em;
   color: #1f6feb;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.2s ease-in-out;
+}
+
+.repo-name:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .repo-description {

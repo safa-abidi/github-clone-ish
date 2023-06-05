@@ -15,7 +15,7 @@ const Repo = (props: RepoProps) => {
   return (
     <div className="repo-card">
       <div className="repo-basic-info">
-        <h2 className="repo-name">{props.repo.name}</h2>
+        <a href={props.repo.html_url} className="repo-name"><h2>{props.repo.name}</h2></a>
         <span className="visibility">{props.repo.visibility}</span>
       </div>
       <p className="repo-description">
