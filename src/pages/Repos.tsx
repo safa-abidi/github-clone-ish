@@ -15,9 +15,10 @@ const Repos = () => {
   const [repos, setRepos] = useState<RepoModel[]>([]);
   const [filteredRepos, setFilteredRepos] = useState<RepoModel[]>([]);
   const [loading, setLoading] = useState(false);
+  const [loadingContent, setLoadingContent] = useState(false);
 
   const getRepos = async () => {
-    setLoading(true);
+    setLoadingContent(true);
     if (login) {
       const result = await GitHubService.getUserRepos(login);
       if (result.length > 0) {
@@ -26,7 +27,9 @@ const Repos = () => {
         setFilteredRepos(result); // Initialize filtered repos with all repos
       }
     }
-    setLoading(false);
+    setTimeout(() => {
+      setLoadingContent(false);
+    }, 500);
   };
 
   const filterByname = (searchInput: string) => {
@@ -39,7 +42,9 @@ const Repos = () => {
       );
       setFilteredRepos(filtered);
     }
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
   };
 
   useEffect(() => {
@@ -50,7 +55,7 @@ const Repos = () => {
     <>
       <ToastContainer />
       <NavBar></NavBar>
-      {loading ? (
+      {loadingContent ? (
         <Loader></Loader>
       ) : (
         <div className="content">
