@@ -10,6 +10,17 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const search = async (login: string) => {
+    if (!login) {
+      toast.warn("Please fill the input field", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        transition: Flip,
+      });
+      return;
+    }
     try {
       const result = await GitHubService.getUserRepos(login);
       if (result) {
@@ -28,6 +39,7 @@ const Home = () => {
       console.log(error);
     }
   };
+  
   return (
     <>
       <NavBar />

@@ -28,17 +28,10 @@ const SearchBar = (props: SearchBarProps) => {
     const trimmedValue = value.trim();
     if (trimmedValue) {
       props.onSearch(trimmedValue);
-      setValue("");
     } else {
-      toast.warn("Please fill in the search field", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        transition: Flip,
-      });
+      props.onSearch("");
     }
+    setValue("");
   };
 
   return (

@@ -15,7 +15,7 @@ const Repo = (props: RepoProps) => {
   return (
     <div className="repo-card">
       <div className="repo-basic-info">
-        <a href={props.repo.html_url} className="repo-name"><h2>{props.repo.name}</h2></a>
+        <a href={props.repo.html_url} target="_blank" rel="noreferrer" className="repo-name"><h2>{props.repo.name}</h2></a>
         <span className="visibility">{props.repo.visibility}</span>
       </div>
       <p className="repo-description">
@@ -24,14 +24,14 @@ const Repo = (props: RepoProps) => {
       <div className="repo-details">
         <div className="repo-info">
           <span className="repo-language">{props.repo.language}</span>
-          <span className="repo-updatedAt">{formattedUpdateTime}</span>
           <span className="repo-forks">
             <FontAwesomeIcon icon={faCodeFork} />
             {props.repo.forks_count}
           </span>
+          <span className="repo-updatedAt">{formattedUpdateTime}</span>
         </div>
         <div className="repo-stars">
-          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} style={{ color: '#FDCC0D' }}/>
           <span className="owner-login">{props.repo.stargazers_count}</span>
         </div>
       </div>

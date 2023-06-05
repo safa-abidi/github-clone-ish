@@ -16,8 +16,7 @@ const ProfileSection = (props: ProfileProps) => {
           <FontAwesomeIcon icon={faUser} className="defaultAvatar"></FontAwesomeIcon>
         )}
       <div className="details">
-        <a className="login" href={props.html_url}><span>{props.login}</span></a>
-
+        <a className="login" href={props.html_url} target="_blank" rel="noreferrer"><span>{props.login}</span></a>
         <span className="numberRepos">Number of repos: {props.numberRepos}</span>
       </div>
     </div>

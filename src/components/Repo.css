@@ -12,16 +12,16 @@
   box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
 }
 
-.repo-basic-info{
+.repo-basic-info {
   display: flex;
- justify-content: space-between;
-  align-items: start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.visibility{
+.visibility {
   color: #555;
   border-radius: 4px;
-  padding: .2em;
+  padding: 0.2em;
 }
 
 .repo-name {
@@ -33,7 +33,7 @@
   transition: text-decoration-color 0.2s ease-in-out;
 }
 
-.repo-name:hover{
+.repo-name:hover {
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
@@ -68,7 +68,6 @@
 .repo-updatedAt {
   font-size: 0.8rem;
   color: #888;
-  margin-right: 1.2em;
 }
 .repo-forks {
   font-size: 0.8rem;
@@ -87,7 +86,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;  
+  height: 100%;
   opacity: 0.3;
   z-index: -1;
 }
