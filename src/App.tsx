@@ -3,6 +3,10 @@ import Home from "./pages/Home";
 import Repos from "./pages/Repos";
 import NotFound from "./pages/NotFound";
 
+/**
+ * App Component uses the React Router to handle routing and renders different components based on the URL path.
+ */
+
 const App = () => {
   return (
     <BrowserRouter>

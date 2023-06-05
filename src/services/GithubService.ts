@@ -9,9 +9,10 @@ class GitHubService {
   /**
    * Retrieves the repositories of a user from the GitHub API.
    * @param {string} login - The username of the user.
-   * @returns {Promise<any>} - A promise that resolves to the user repositories.
-   * @returns {0} - If the request fails or the response code is not 200.
+   * @returns {Promise<RepoModel[]>} - A promise that resolves to an array of user repositories.
+   * @returns {number} - Returns 0 if the request fails or the response code is not 200.
    */
+
   static async getUserRepos(login: string): Promise<any> {
     try {
       const response: AxiosResponse<RepoModel[]> = await axios.get(

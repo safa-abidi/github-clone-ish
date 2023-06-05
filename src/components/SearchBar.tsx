@@ -3,7 +3,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 import React, { useState } from "react";
 import "./SearchBar.css";
-import { toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface SearchBarProps {
@@ -11,6 +10,10 @@ interface SearchBarProps {
   onSearch: (value: string) => void;
 }
 
+/**
+ * SearchBar component displays an input field and a search button.
+ * Users can enter a search query and trigger the search by pressing Enter or clicking the button.
+ */
 const SearchBar = (props: SearchBarProps) => {
   const [value, setValue] = useState("");
 

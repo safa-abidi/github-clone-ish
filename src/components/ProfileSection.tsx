@@ -7,6 +7,11 @@ interface ProfileProps {
   numberRepos: number;
   html_url: string;
 }
+
+/**
+ * ProfileSection component displays the profile information of a user.
+ * It shows the user's avatar, login name, and the total number of repositories they have.
+ */
 const ProfileSection = (props: ProfileProps) => {
   return (
     <div className="profile-card">

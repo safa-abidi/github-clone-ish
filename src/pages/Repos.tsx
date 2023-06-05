@@ -10,6 +10,9 @@ import NavBar from "../components/Navbar";
 import { ToastContainer } from "react-toastify";
 import Loader from "../components/Loader";
 
+/**
+ * Repos component displays the repositories of a GitHub user.
+ */
 const Repos = () => {
   const { login } = useParams();
   const [repos, setRepos] = useState<RepoModel[]>([]);
@@ -17,6 +20,9 @@ const Repos = () => {
   const [loading, setLoading] = useState(false);
   const [loadingContent, setLoadingContent] = useState(false);
 
+  /**
+   * Retrieves the repositories of the user from the GitHub API.
+   */
   const getRepos = async () => {
     setLoadingContent(true);
     if (login) {
@@ -32,6 +38,10 @@ const Repos = () => {
     }, 500);
   };
 
+  /**
+   * Filters the repositories based on the search input.
+   * @param {string} searchInput - The input value for filtering repositories.
+   */
   const filterByname = (searchInput: string) => {
     setLoading(true);
     if (searchInput.trim() === "") {
@@ -49,6 +59,7 @@ const Repos = () => {
 
   useEffect(() => {
     getRepos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -7,18 +7,34 @@ import "react-toastify/dist/ReactToastify.css";
 import GitHubService from "../services/GithubService";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Home component displays the homepage of the application.
+ */
 const Home = () => {
   const navigate = useNavigate();
+
+  /**
+   * Displays a toast message.
+   * @param {string} message - The message to display in the toast.
+   */
+  const displayToast = (message: string) => {
+    toast.warn(message, {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      transition: Flip,
+    });
+  };
+
+  /**
+   * Handles the search of user by login.
+   * @param {string} login - The login to search for.
+   */
   const search = async (login: string) => {
     if (!login) {
-      toast.warn("Please fill the input field", {
-        position: "top-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        transition: Flip,
-      });
+      displayToast("Please enter a login");
       return;
     }
     try {
@@ -26,20 +42,13 @@ const Home = () => {
       if (result) {
         navigate(`/repos/${login}`);
       } else {
-        toast.warn("User not found", {
-          position: "top-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          transition: Flip,
-        });
+        displayToast("User not found");
       }
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   return (
     <>
       <NavBar />

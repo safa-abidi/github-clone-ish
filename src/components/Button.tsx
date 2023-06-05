@@ -5,6 +5,11 @@ interface ButtonProps {
   onClick: () => void;
   children?: React.ReactNode;
 }
+
+/**
+ * Button component represents a custom button element.
+ * It can be customized with optional borderRadius prop.
+ */
 const Button = (props: ButtonProps) => {
   return (
     <button

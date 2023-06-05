@@ -3,8 +3,14 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import "./NotFound.css";
 
+/**
+ * NotFound component displays a 404 error page when a requested page is not found.
+ */
 const NotFound = () => {
   const navigate = useNavigate();
+  /**
+   * Navigates to the homepage.
+   */
   const goHome = () => {
     navigate("/");
   };

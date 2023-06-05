@@ -10,6 +10,12 @@ dayjs.extend(relativeTime);
 interface RepoProps {
   repo: RepoModel;
 }
+
+/**
+ * Repo component displays information about a repository.
+ * It shows the repository name, visibility, description, language, forks count,
+ * last update time, and star count.
+ */
 const Repo = (props: RepoProps) => {
   const formattedUpdateTime = dayjs(props.repo.updated_at).fromNow();
   return (
