@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+<div align="center">
+  <h1>Github Repos App</h1>
+    <a href="https://647e57da1c815a20709b2fd8--courageous-lollipop-292db2.netlify.app/">View Demo</a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+</div>
 
-## Available Scripts
+<!-- ABOUT THE PROJECT -->
 
-In the project directory, you can run:
+## About The Project
 
-### `npm start`
+This React application allows you to search for GitHub users by login and filter their repostitories. It provides a simple and intuitive user interface to fetch and display repository information from the GitHub API.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Repos Page](./src/assets/repos.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- GETTING STARTED -->
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get a local copy up and running follow these simple steps.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repo
+   ```sh
+   git clone https://github.com/safa-abidi/github-clone-ish
+   ```
+2. Navigate to the project directory
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```sh
+   cd github-clone-ish
+   ```
 
-### `npm run eject`
+3. Install NPM packages
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```sh
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Start the development server
+   ```sh
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Running Tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+npm test
+```
 
-## Learn More
+## Running Storybook
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+npm run storybook
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Used
+
+- ReactJs: JavaScript library for building user interfaces.
+- Github API: API to fetch user and repository information.
+- dayjs: JavaScript date library for manipulating, and formatting dates.
+- Font Awesome: Icon library.
+
+## Features
+
+1. Search for GitHub repositories by entering a username.
+2. Filter the repositories by name to quickly find specific ones.
+3. View details of each repository, including name, description, language, forks count, last update time, etc.
+
+## Future Improvements
+
+- Pagination: Implement pagination to load repositories in smaller chunks, allowing users to navigate through multiple pages of results.
+- Enhanced Search Features: Implement advanced search functionality to allow users to search for repositories based on various criteria, such as language and creation date.
+- Test automation: Consider setting up automated testing workflows to run tests automatically on every code change.
+
+

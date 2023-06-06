@@ -29,7 +29,6 @@ const Repos = () => {
     if (login) {
       const result = await GitHubService.getUserRepos(login);
       if (result.length > 0) {
-        console.log(result);
         setRepos(result);
         setFilteredRepos(result);
       } else {
