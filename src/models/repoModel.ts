@@ -1,7 +1,7 @@
 import User from "./userModel";
 
 interface RepoModel {
-  created_at: string;
+  created_at?: string;
   description: string;
   forks_count: number;
   html_url: string;
