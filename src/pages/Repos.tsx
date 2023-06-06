@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProfileSection from "../components/ProfileSection";
 import GitHubService from "../services/GithubService";
 import React, { useEffect, useState } from "react";
@@ -15,6 +15,7 @@ import Loader from "../components/Loader";
  */
 const Repos = () => {
   const { login } = useParams();
+  const navigate = useNavigate();
   const [repos, setRepos] = useState<RepoModel[]>([]);
   const [filteredRepos, setFilteredRepos] = useState<RepoModel[]>([]);
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,9 @@ const Repos = () => {
       if (result.length > 0) {
         console.log(result);
         setRepos(result);
-        setFilteredRepos(result); // Initialize filtered repos with all repos
+        setFilteredRepos(result);
+      } else {
+        navigate("/404"); // User not found, navigate to 404 page
       }
     }
     setTimeout(() => {
